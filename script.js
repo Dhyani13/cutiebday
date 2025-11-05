@@ -1,37 +1,102 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Card flip functionality
-    const card = document.querySelector('.birthday-card');
-    const openCardBtn = document.getElementById('openCard');
     
-    openCardBtn.addEventListener('click', function() {
-        card.classList.toggle('flipped');
-        if (card.classList.contains('flipped')) {
-            createConfetti();
-        }
-    });
+    // Add promise functionality
+    const addPromiseBtn = document.getElementById('add-promise');
+    const promisesList = document.getElementById('promises-list');
     
-    // Add wish functionality
-    const addWishBtn = document.getElementById('add-wish');
-    const wishesList = document.getElementById('wishes-list');
-    
-    addWishBtn.addEventListener('click', function() {
-        const newWish = prompt('Add a wish for your love:');
-        if (newWish) {
+    addPromiseBtn.addEventListener('click', function() {
+        const newPromise = prompt('Add a friendship promise:');
+        if (newPromise) {
             const li = document.createElement('li');
-            li.textContent = newWish;
-            li.style.animation = 'fadeIn 0.5s';
+            li.textContent = newPromise;
             
-            // Add random color to the wish
-            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            li.style.backgroundColor = randomColor + '20'; // Add transparency
+            // Add random gradient to the promise
+            const gradients = [
+                'linear-gradient(45deg, #ffb6c1, #87cefa)',
+                'linear-gradient(45deg, #ff6b6b, #45b7d1)',
+                'linear-gradient(45deg, #96ceb4, #ffe1a8)',
+                'linear-gradient(45deg, #feca57, #ff9ff3)',
+                'linear-gradient(45deg, #a29bfe, #fd79a8)',
+                'linear-gradient(45deg, #fd79a8, #fdcb6e)'
+            ];
+            const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+            li.style.background = randomGradient;
             
-            wishesList.appendChild(li);
+            promisesList.appendChild(li);
             
-            // Create a small confetti effect for the new wish
+            // Create a small confetti effect for the new promise
             createConfettiAtElement(li);
         }
     });
+    
+    // Random quote functionality
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    const newQuoteBtn = document.getElementById('new-quote');
+    
+    // Function to fetch a random quote from an API
+    async function fetchRandomQuote() {
+        try {
+            // Using a fallback quote in case the API call fails
+            const fallbackQuotes = [
+                { text: "A friend is someone who knows all about you and still loves you.", author: "Elbert Hubbard" },
+                { text: "Friendship is born at that moment when one person says to another: 'What! You too? I thought I was the only one.'", author: "C.S. Lewis" },
+                { text: "True friendship comes when silence between two people is comfortable.", author: "David Tyson Gentry" },
+                { text: "A real friend is one who walks in when the rest of the world walks out.", author: "Walter Winchell" },
+                { text: "Friendship is the only cement that will ever hold the world together.", author: "Woodrow Wilson" },
+                { text: "The best of friends must part, but a true friendship never ends.", author: "Unknown" },
+                { text: "In the sweetness of friendship let there be laughter, and sharing of pleasures. For in the dew of little things the heart finds its morning and is refreshed.", author: "Khalil Gibran" },
+                { text: "A friend is what the heart needs all the time.", author: "Henry Van Dyke" }
+            ];
+            
+            // Try to fetch from an API first
+            const response = await fetch('https://type.fit/api/quotes');
+            if (response.ok) {
+                const quotes = await response.json();
+                // Filter for friendship/love related quotes
+                const friendshipQuotes = quotes.filter(quote => 
+                    quote.text.toLowerCase().includes('friend') || 
+                    quote.text.toLowerCase().includes('love') ||
+                    quote.text.toLowerCase().includes('relationship') ||
+                    quote.text.toLowerCase().includes('heart') ||
+                    quote.text.toLowerCase().includes('best friend')
+                );
+                
+                let selectedQuote;
+                if (friendshipQuotes.length > 0) {
+                    selectedQuote = friendshipQuotes[Math.floor(Math.random() * friendshipQuotes.length)];
+                } else {
+                    selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                }
+                
+                quoteText.textContent = `"${selectedQuote.text}"`;
+                quoteAuthor.textContent = `- ${selectedQuote.author}`;
+            } else {
+                // Use fallback quotes if API fails
+                const randomQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+                quoteText.textContent = `"${randomQuote.text}"`;
+                quoteAuthor.textContent = `- ${randomQuote.author}`;
+            }
+        } catch (error) {
+            // If API fails completely, use fallback quotes
+            const fallbackQuotes = [
+                { text: "A friend is someone who knows all about you and still loves you.", author: "Elbert Hubbard" },
+                { text: "Friendship is born at that moment when one person says to another: 'What! You too? I thought I was the only one.'", author: "C.S. Lewis" },
+                { text: "True friendship comes when silence between two people is comfortable.", author: "David Tyson Gentry" },
+                { text: "A real friend is one who walks in when the rest of the world walks out.", author: "Walter Winchell" }
+            ];
+            
+            const randomQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+            quoteText.textContent = `"${randomQuote.text}"`;
+            quoteAuthor.textContent = `- ${randomQuote.author}`;
+        }
+    }
+    
+    // Initialize with a random quote
+    fetchRandomQuote();
+    
+    // Add event listener to the new quote button
+    newQuoteBtn.addEventListener('click', fetchRandomQuote);
     
     // Create floating balloons
     function createBalloons() {
@@ -295,12 +360,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Elements that count as interactions for the surprise
     const interactiveElements = [
         document.querySelector('.header h1'),
-        document.getElementById('openCard'),
+        document.getElementById('add-promise'),
+        document.getElementById('new-quote'),
         document.getElementById('add-wish'),
         document.getElementById('play-music'),
         document.getElementById('pause-music'),
         ...document.querySelectorAll('.photo-container img'),
-        ...document.querySelectorAll('#wishes-list li')
+        ...document.querySelectorAll('#wishes-list li'),
+        ...document.querySelectorAll('#promises-list li')
     ];
     
     interactiveElements.forEach(element => {
@@ -335,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show a special message
         const specialMessage = document.createElement('div');
-        specialMessage.innerHTML = '🎉 LOVE YOU SO MUCH! 🎉<br>Happy Birthday Again! 🎂';
+        specialMessage.innerHTML = '🎉 BESTIE M, YOU\'RE AMAZING! 🎉<br>Happy Birthday Again! 🎂';
         specialMessage.style.position = 'fixed';
         specialMessage.style.top = '50%';
         specialMessage.style.left = '50%';

@@ -34,68 +34,47 @@ body {
     50% { transform: translateY(-15px); }
 }
 
-.birthday-card {
-    background: #fff;
+.friendship-promises {
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 25px;
     margin: 30px auto;
     width: 80%;
-    max-width: 500px;
-    position: relative;
-    perspective: 1000px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card-front, .card-inside {
-    width: 100%;
-    height: 250px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.8s;
-    border-radius: 20px;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.card-front {
-    background: linear-gradient(45deg, #ffb6c1, #87cefa);
-    z-index: 2;
-    cursor: pointer;
-}
-
-.card-inside {
-    background: linear-gradient(45deg, #ffd700, #ff69b4);
-    transform: rotateY(180deg);
-}
-
-.birthday-card.flipped .card-front {
-    transform: rotateY(-180deg);
-}
-
-.birthday-card.flipped .card-inside {
-    transform: rotateY(0deg);
-}
-
-.card-front h2 {
+.friendship-promises h2 {
     font-size: 2rem;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.card-front p {
-    font-size: 1.2rem;
-    color: #fff;
+    color: #ff6b6b;
     margin-bottom: 20px;
 }
 
-#openCard {
-    background: #ff6b6b;
+#promises-list {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+#promises-list li {
+    padding: 12px;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #ffb6c1, #87cefa);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+#promises-list li:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff6b6b, #45b7d1);
+}
+
+#add-promise {
+    background: #9c27b0;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -103,25 +82,72 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-top: 10px;
 }
 
-#openCard:hover {
-    background: #ff5252;
+#add-promise:hover {
+    background: #7b1fa2;
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-.card-inside h3 {
+.quote-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px auto;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.quote-section h3 {
     font-size: 1.8rem;
-    color: white;
-    margin-bottom: 15px;
+    color: #ff6b6b;
+    margin-bottom: 20px;
 }
 
-.personal-message {
-    font-size: 1.2rem;
-    color: white;
+#quote-container {
+    background: linear-gradient(45deg, #ffd700, #ff69b4);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#quote-text {
+    font-size: 1.4rem;
     font-style: italic;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#quote-author {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    text-align: right;
+    align-self: flex-end;
+}
+
+#new-quote {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#new-quote:hover {
+    background: #45a049;
+    transform: scale(1.05);
 }
 
 .gallery {

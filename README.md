@@ -1,13 +1,13 @@
-# Birthday Website for My Love - November 26
+# Birthday Website for Best Friend M - November 26
 
-A beautiful, interactive birthday website created with HTML, CSS, and JavaScript for a special November 26 birthday.
+A beautiful, interactive birthday website created with HTML, CSS, and JavaScript for my awesome best friend M on November 26.
 
 ## Features
 
 - Animated greeting card with flip effect
 - Floating balloons and confetti animations
 - Photo gallery with interactive images
-- Personalized wishes section
+- Personalized best friend wishes section
 - Music player
 - Countdown timer (set to November 26)
 - Special surprise interactions
@@ -27,7 +27,7 @@ A beautiful, interactive birthday website created with HTML, CSS, and JavaScript
 To personalize this for your own use:
 
 1. Update the images in the gallery section with your own photos
-2. Modify the text messages in the HTML file
+2. Modify the text messages in the HTML file to reference your best friend
 3. Change the colors in the CSS file to match your preferences
 4. Update the music in the HTML file if needed
 5. Update the birthday date in `script.js` (currently set to November 26)
@@ -40,4 +40,4 @@ To personalize this for your own use:
 
 ## Credits
 
-Created with ❤️ for a special November 26 birthday.
+Created with ❤️ for my best friend M on November 26.
