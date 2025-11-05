@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday My Love! - November 26</h1>
+        </div>
+        
+        <div class="content">
+            <div class="birthday-card">
+                <div class="card-front">
+                    <h2>For My Sweetheart</h2>
+                    <p class="message">Wishing the most amazing person in my life a very happy birthday!</p>
+                    <button id="openCard">Open Card</button>
+                </div>
+                
+                <div class="card-inside">
+                    <h3>Happy Birthday!</h3>
+                    <p class="personal-message">You mean the world to me. Thank you for being my everything. May your special day be as incredible as you are!</p>
+                    <p class="personal-message">With all my love!</p>
+                </div>
+            </div>
+            
+            <div class="gallery" id="gallery">
+                <h3>Our Beautiful Memories</h3>
+                <div class="photo-container">
+                    <img src="https://placehold.co/300x300/FFB6C1/FFFFFF?text=Memory+1" alt="Special Moment">
+                    <img src="https://placehold.co/300x300/87CEFA/FFFFFF?text=Memory+2" alt="Special Moment">
+                    <img src="https://placehold.co/300x300/98FB98/FFFFFF?text=Memory+3" alt="Special Moment">
+                </div>
+            </div>
+            
+            <div class="wishes-container">
+                <h3>My Wishes For You</h3>
+                <ul id="wishes-list">
+                    <li>Endless Happiness</li>
+                    <li>Boundless Love</li>
+                    <li>Success in All You Do</li>
+                    <li>Perfect Health</li>
+                    <li>Dreams Coming True</li>
+                    <li>Many More Happy Birthdays</li>
+                </ul>
+                <button id="add-wish">Add Your Wish</button>
+            </div>
+            
+            <div class="countdown">
+                <h3>Countdown to Your Special Day - November 26th</h3>
+                <div id="countdown-display">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="music-player">
+                <h3>Birthday Song</h3>
+                <audio id="birthday-song" controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button id="play-music">Play Music</button>
+                <button id="pause-music">Pause Music</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
