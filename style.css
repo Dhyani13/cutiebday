@@ -150,7 +150,7 @@ body {
     transform: scale(1.05);
 }
 
-.gallery {
+.cute-moments {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 25px;
@@ -159,31 +159,67 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.gallery h3 {
+.cute-moments h3 {
     font-size: 1.8rem;
     color: #ff6b6b;
     margin-bottom: 20px;
 }
 
-.photo-container {
+.cute-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-.photo-container img {
+.cute-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 20px;
     width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
     cursor: pointer;
+    backdrop-filter: blur(5px);
 }
 
-.photo-container img:hover {
-    transform: scale(1.1);
+.cute-item:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.anime-kiss-icon, .anime-heart-icon, .anime-hug-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.anime-kiss-icon:hover, .anime-heart-icon:hover, .anime-hug-icon:hover {
+    transform: scale(1.3) rotate(10deg);
+}
+
+.anime-kiss-icon {
+    color: #ff6b6b;
+}
+
+.anime-heart-icon {
+    color: #ff69b4;
+}
+
+.anime-hug-icon {
+    color: #4ecdc4;
+}
+
+.cute-item p {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
 }
 
 .wishes-container {

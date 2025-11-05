@@ -211,39 +211,54 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the page with balloons
     createBalloons();
     
-    // Add some interactivity to the gallery images
-    const galleryImages = document.querySelectorAll('.photo-container img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
-            // Create a temporary larger view of the image
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            overlay.style.display = 'flex';
-            overlay.style.justifyContent = 'center';
-            overlay.style.alignItems = 'center';
-            overlay.style.zIndex = '1000';
-            overlay.style.cursor = 'pointer';
-            
-            const enlargedImg = document.createElement('img');
-            enlargedImg.src = this.src;
-            enlargedImg.style.maxWidth = '90%';
-            enlargedImg.style.maxHeight = '90%';
-            enlargedImg.style.borderRadius = '10px';
-            enlargedImg.style.boxShadow = '0 0 30px rgba(255,255,255,0.5)';
-            
-            overlay.appendChild(enlargedImg);
-            document.body.appendChild(overlay);
-            
-            overlay.addEventListener('click', function() {
-                document.body.removeChild(overlay);
-            });
+    // Add some interactivity to the cute elements
+    const cuteItems = document.querySelectorAll('.cute-item');
+    cuteItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Create a kiss animation effect
+            createKissEffect(item);
         });
     });
+    
+    // Function to create kiss effect
+    function createKissEffect(element) {
+        const rect = element.getBoundingClientRect();
+        const confettiContainer = document.getElementById('confettiContainer');
+        
+        for (let i = 0; i < 15; i++) {
+            const kiss = document.createElement('div');
+            kiss.textContent = '💋';
+            kiss.style.position = 'fixed';
+            kiss.style.fontSize = '1.5rem';
+            kiss.style.left = (rect.left + rect.width/2) + 'px';
+            kiss.style.top = (rect.top + rect.height/2) + 'px';
+            kiss.style.pointerEvents = 'none';
+            kiss.style.zIndex = '1000';
+            kiss.style.opacity = '1';
+            
+            // Random movement
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 30 + Math.random() * 50;
+            const duration = 1 + Math.random() * 1;
+            
+            kiss.style.transition = `all ${duration}s ease-out`;
+            
+            confettiContainer.appendChild(kiss);
+            
+            // Animate
+            setTimeout(() => {
+                kiss.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+                kiss.style.opacity = '0';
+            }, 10);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (kiss.parentNode) {
+                    kiss.parentNode.removeChild(kiss);
+                }
+            }, duration * 1000);
+        }
+    }
     
     // Add a little animation to list items on hover
     const wishItems = document.querySelectorAll('#wishes-list li');
@@ -365,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('add-wish'),
         document.getElementById('play-music'),
         document.getElementById('pause-music'),
-        ...document.querySelectorAll('.photo-container img'),
+        ...document.querySelectorAll('.cute-item'),
         ...document.querySelectorAll('#wishes-list li'),
         ...document.querySelectorAll('#promises-list li')
     ];
