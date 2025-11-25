@@ -1,0 +1,308 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  margin:0; padding:50px 20px;
+  background:#000;
+  color:#e0d6eb;
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  line-height:1.7;
+}
+canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+.container { max-width:900px; margin:0 auto; text-align:center; }
+.header h1 {
+  font-size:2.8rem; margin:40px 0;
+  background:linear-gradient(90deg,#d8bfd8,#e0b0ff,#9370db);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+.letter, .promises, .wishes, .countdown {
+  background:rgba(20,10,40,0.6);
+  border:2px solid #9370db;
+  border-radius:20px;
+  padding:35px;
+  margin:40px auto;
+  max-width:800px;
+}
+.letter h2, .promises h3, .wishes h3, .countdown h3 {
+  color:#e0b0ff; font-size:1.8rem; margin-bottom:25px;
+}
+.message { text-align:left; font-size:1.15rem; }
+.message p { margin-bottom:18px; }
+.message em { display:block; margin:30px 0; font-size:1.1rem; color:#d8bfd8; }
+
+.promises ul, .wishes ul { list-style:none; }
+.promises li, .wishes li {
+  background:rgba(147,112,219,0.2);
+  padding:14px; margin:12px 0;
+  border-radius:12px; font-size:1.1rem;
+}
+
+.love-btn, .music-btn {
+  background:linear-gradient(45deg,#9370db,#b65cff);
+  color:white; border:none; padding:14px 32px;
+  border-radius:50px; margin:15px; cursor:pointer;
+  font-size:1.1rem; font-weight:600;
+  transition:all .3s;
+}
+.love-btn:hover, .music-btn:hover { transform:scale(1.08); box-shadow:0 0 20px rgba(182,92,255,.6); }
+
+#countdown-display { display:flex; justify-content:center; gap:25px; flex-wrap:wrap; margin-top:20px; }
+#countdown-display div {
+  background:rgba(138,43,226,.3); padding:20px; border-radius:15px; min-width:90px;
+}
+#countdown-display span { display:block; font-size:2.4rem; font-weight:bold; }
+#countdown-display p { margin:5px 0 0; color:#e0b0ff; }
+
+footer { margin:80px 0 40px; color:#9370db; font-size:0.9rem; opacity:0.8; }
+
+/* Popup */
+.popup-container {
+  position:fixed; top:0; left:0; width:100%; height:100vh;
+  background:rgba(0,0,0,0.85); backdrop-filter:blur(8px);
+  display:none; justify-content:center; align-items:center; z-index:1000;
+}
+.popup-box {
+  background:#1a0f2e; padding:40px; border-radius:25px;
+  border:2px solid #9370db; max-width:90%; text-align:center;
+  animation:popUp .5s ease-out;
+}
+.popup-box p { font-size:1.25rem; line-height:1.8; margin-bottom:25px; }
+.close-btn {
+  background:#9370db; color:white; border:none; padding:12px 30px;
+  border-radius:50px; cursor:pointer; font-weight:600;
+}
+.close-btn:hover { background:#b65cff; }
+
+@keyframes popUp { from{transform:scale(0.7); opacity:0} to{transform:scale(1); opacity:1} }
+
+/* ✨ Extra gentle sparkle that follows the mouse */
+.mouse-sparkle {
+  position: fixed;
+  pointer-events: none;
+  width: 6px; height: 6px;
+  background: #e0b0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #e0b0ff, 0 0 30px #b65cff;
+  animation: sparkleFade 1.5s forwards;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+}
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: translate(-50%,-50%) scale(0); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(3); }
+}
+
+/* Subtle glowing particles drifting upward */
+.glow-particle {
+  position: fixed;
+  width: 4px; height: 4px;
+  background: rgba(224,176,255,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: drift 20s linear infinite;
+  box-shadow: 0 0 12px #e0b0ff;
+}
+@keyframes drift {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+}
+
+/* Breathing glow on the main heading */
+.header h1 {
+  animation: float 6s ease-in-out infinite, breatheGlow 8s ease-in-out infinite;
+}
+@keyframes breatheGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(224,176,255,0.6); }
+  50% { text-shadow: 0 0 40px rgba(182,92,255,0.9), 0 0 60px rgba(138,43,226,0.4); }
+}
+
+/* Birthday Cake */
+.cake-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+#birthday-cake {
+  font-size: 5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#birthday-cake:hover {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 15px #ff69b4);
+}
+
+/* Special Cake Popup */
+#cake-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#cake-popup.active {
+  display: flex;
+}
+
+#cake-popup .popup-box {
+  background: #1a0f2e;
+  padding: 40px;
+  border-radius: 25px;
+  border: 2px solid #9370db;
+  max-width: 90%;
+  text-align: center;
+  animation: popUp 0.5s ease-out;
+}
+
+#cake-popup .popup-box p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #e0d6eb;
+}
+
+/* Big Heart */
+.heart-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.heart {
+  font-size: 10rem;
+  color: #e0b0ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow:
+    0 0 10px rgba(224, 176, 255, 0.5),
+    0 0 20px rgba(224, 176, 255, 0.4),
+    0 0 30px rgba(182, 92, 255, 0.6),
+    0 0 40px rgba(147, 112, 219, 0.7);
+  animation: pulse 1.5s ease-in-out infinite alternate, float 3s ease-in-out infinite, shine 2s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 100;
+}
+
+.heart:hover {
+  transform: scale(1.2) rotate(10deg);
+  text-shadow:
+    0 0 15px rgba(224, 176, 255, 0.7),
+    0 0 25px rgba(224, 176, 255, 0.6),
+    0 0 35px rgba(182, 92, 255, 0.8),
+    0 0 45px rgba(147, 112, 219, 0.9),
+    0 0 55px rgba(182, 92, 255, 0.7);
+  color: #d8bfd8;
+}
+
+/* Additional shine effect */
+.heart::before {
+  content: "💖";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  animation: shine 3s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes shine {
+  0% {
+    transform: scale(0.95) rotate(-2deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0) rotate(0deg);
+  }
+}
+
+/* Heart Popup */
+.heart-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.heart-popup-box {
+  background: #1a0f2e;
+  padding: 40px;
+  border-radius: 25px;
+  border: 2px solid #9370db;
+  max-width: 80%;
+  text-align: center;
+  animation: popUp 0.5s ease-out;
+}
+
+.heart-popup-box p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #e0d6eb;
+  text-align: center;
+  font-weight: 500;
+}
+
+.close-heart-btn {
+  background: #9370db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.close-heart-btn:hover {
+  background: #b65cff;
+  transform: scale(1.05);
+}

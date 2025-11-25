@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For M ♡ November 26</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <canvas id="starCanvas"></canvas>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>Happy Birthday, my sweetest M</h1>
+    </header>
+
+    <!-- Main Letter -->
+    <section class="letter">
+      <h2>My heartfelt message, left here for you</h2>
+      <div class="message">
+        <p>My sweetest M,</p>
+        <p>happy birthday, hottie 🤍😉</p>
+        <p>The first time I ever showed up in your dream, you told me the next day — and I laughed so hard 😂 because how could I be there when we were still basically strangers?I didn’t know then that one day I’d be hoping every night to sneak into your dreams again 😉. I didn’t know that a silly dream-version of me would become something so real in my heart.</p>
+        <p>We went through a lot, didn’t we?<br>
+        Long nights, hospital calls, nights where everything felt heavy( mostly for me haha 😂 but you helped me a lot like I am forever grateful to you for that mucho gracias ❤)<br>
+        And still — every moment with you was beautiful.<br>
+        Even when life was a mess, you somehow made it feel warm.</p>
+        <p>You always listened before you I never thought I even deserved that or not but you made me feel so special ❤<br>
+        You let me be annoying , tease you, be clingy, cry, go silent. You let me be myself — and you never made me feel like too much.<br>
+        You held my heart with so much care that I still carry that softness everywhere.</p>
+        <p>M, you are the strongest person(ofc hottest and best too 😉) I know.<br>
+        And you carry that strength so quietly, so gently.<br>
+        You deserve love that stays.<br>
+        You deserve someone who wakes up grateful every single day just because they get to love you.<br>
+        You deserve to feel like the most important part of someone’s day — every day.<br>
+        You deserve love that’s loud enough that you never have to wonder.</p>
+        <p>I know I wasn’t always what you needed.<br>
+        I know sometimes I made things heavier instead of helping you breathe.<br>
+        And I’m sorry for that.<br>
+        I’m becoming someone better — someone who would never let you feel alone again.<br>
+        Even if you never see that version of me, I needed you to know I’m trying… because you deserve that kind of effort from the whole world.</p>
+        <p>And I’m still in love with you — stupidly, softly, a little too much sometimes.<br>
+        And it doesn’t help that you’re literally the hottest person alive 😉🔥<br>
+        Like seriously, you expect me not to fall for that you? Impossible. You are literal perfection honey (^_~)</p>
+        <p>You're in every kiss I never got to give you, every hug my arms still reach for half-asleep, every "good night" I whisper to the moon hoping it finds you somehow.(ofc in my all of cuddles too 😂)</p>
+        <p>Wherever you are tonight, I hope you're being held gently — the way you always deserved.<br>
+        I hope someone is keeping you warm, safe, and laughing (the way you always did for me ❤).</p>
+        <p>And sweetheart… for your future — I know you're going to get everything you dream of.<br>
+        You're too smart, too kind, too strong, too determined not to.<br>
+        Whatever you want — peace, success, happiness, love, freedom — you will have it.<br>
+        I believe that with my whole heart.<br>
+        And even from far away, I'll be cheering for you in everything you do. idk what will happen in future with us or with me but you will always be in  my best memories of my life and best thing ever happened to me. it will always bring a smile on my face whenever I think about you ❤ and I am really sorry I couldn't be so good, I am still trying but idk how am I to you but I always want you to be happy and enjoy your life. You will have a great life ahead sweetheart ❤</p>
+        <p>Never forget this, sweetheart — you are smart, beautiful, the sweetest, and ofc the hottest person to ever exist 😉🔥 y te amo mucho, always ❤️❤️❤. i can learn any language for you😉</p>
+        <p>Happy birthday, my favorite human.<br>
+        Thank you for being the softest, brightest part of my life.<br>
+        I'll always be,<br>your sweet D ♡</p>
+      </div>
+    </section>
+
+    <!-- Soft promises (from you) -->
+    <section class="promises">
+      <h3>Things I promise myself — and quietly, to you</h3>
+      <ul>
+        <li>I’ll always wish you well, even from afar</li>
+        <li>I’ll keep growing into someone who would never hurt the people she loves again</li>
+        <li>Your happiness will always matter to me, no matter the distance</li>
+      </ul>
+    </section>
+
+    <!-- Gentle wishes -->
+    <section class="wishes">
+      <h3>Things I’ll always hope for you</h3>
+      <ul>
+        <li>A heart that never feels heavy again</li>
+        <li>Peace that stays, even on stormy days</li>
+        <li>Love that feels safe and gentle</li>
+        <li>Every quiet dream you hold coming true</li>
+        <li>November 26 always feeling like home</li>
+      </ul>
+    </section>
+
+    <!-- One last thing button -->
+    <div class="always-here">
+      <button class="love-btn" onclick="openPopup()">One last thing ♡</button>
+      <button class="love-btn music-btn" onclick="toggleMusic()">Play Soft Music / Pause</button>
+    </div>
+
+    <!-- Birthday Cake -->
+    <div class="cake-container">
+      <div id="birthday-cake" title="Click for a special message ♡">
+        🎂
+      </div>
+    </div>
+
+    <!-- Big Heart -->
+    <div class="heart-container">
+      <div class="heart" id="bigHeart">💜</div>
+    </div>
+
+    <!-- Heart Popup -->
+    <div id="heart-popup" class="heart-popup-container">
+      <div class="heart-popup-box">
+        <p>🎉 Happy Birthday, my favorite person in the universe! 🎉<br>
+        💖 Thank you for being my safe place. 💖<br>
+        🌟 You mean everything to me. 🌟<br>
+        💫 Forever and always, D ♡</p>
+        <button class="close-heart-btn" onclick="closeHeartPopup()">Close 💕</button>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <section class="countdown">
+      <h3>Until November 26</h3>
+      <div id="countdown-display">
+        <div><span id="days">00</span><p>Days</p></div>
+        <div><span id="hours">00</span><p>Hours</p></div>
+        <div><span id="minutes">00</span><p>Minutes</p></div>
+        <div><span id="seconds">00</span><p>Seconds</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>This little corner of the internet will stay here as long as you need it.<br>Come back anytime. I’ll still be wishing you well.</p>
+    </footer>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup-container">
+    <div class="popup-box">
+      <p>Even if we never speak again,<br>you’ll always have a corner of my heart<br>that smiles when November 26 comes.<br><br>Happy birthday, M.<br>I’m letting you go with love.<br>🤍</p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+  
+  <!-- Special Cake Message Popup -->
+  <div id="cake-popup" class="popup-container">
+    <div class="popup-box">
+      <p>🎂 Happy Birthday, my dearest M! 🎂<br><br>
+      May this special day bring you all the joy and happiness you deserve.<br>
+      You are loved more than words can express.<br><br>
+      With all my heart, always,<br>
+      Your sweet D ♡ 🧡</p>
+      <button class="close-btn" onclick="closeCakePopup()">Close</button>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop preload="auto">
+    <source src="song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Auto-unlock audio on first user interaction (fixes mobile) -->
+  <script>
+    document.body.addEventListener('click', function unlockAudio() {
+      const music = document.getElementById('bg-music');
+      if (music) {
+        music.volume = 0.55; // Set volume to 55%
+        if (music.paused) {
+          music.play().catch(() => {});
+        }
+      }
+      document.body.removeEventListener('click', unlockAudio);
+    }, { once: true });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
